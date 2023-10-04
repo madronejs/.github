@@ -1,0 +1,34 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+  - title: '🧰 Maintenance'
+    label: 'chore'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+
+template: |
+  ## Changes
+
+  $CHANGES
+
+# Auto labeler configuration
+# automatically create labels (for the above categories) based on titles and branch names
+autolabeler:
+  - label: 'chore'
+    title:
+      - '/^chore(\(.*\))*:/'
+
+  - label: 'feature'
+    title:
+      - '/^feat(\(.*\))*:/'
+
+  - label: 'fix'
+    title:
+      - '/^fix(\(.*\))*:/'
