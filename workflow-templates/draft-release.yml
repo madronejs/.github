@@ -1,0 +1,17 @@
+name: Draft Release
+
+on:
+  push:
+    - $default-branch
+
+  pull_request:
+    branches:
+      - $default-branch
+    types:
+      - open
+      - reopened
+      - synchronize
+
+jobs:
+  launch:
+    uses: madronejs/.github/.github/workflows/draft-release.hml@main
